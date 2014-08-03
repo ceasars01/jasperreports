@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version last-->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Basic_sub" pageWidth="500" pageHeight="842" columnWidth="500" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="101c0b3e-e312-41c1-b2cc-72002c8de18b">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Xml Merged"/>
+	<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<style name="Style1">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{Test Status}.equals("FAIL")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF7A78"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{Test Status}.equals("PASS")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#5EFF9F"/>
+		</conditionalStyle>
+	</style>
+	<style name="Style2" backcolor="#F74A78"/>
+	<queryString language="xPath">
+		<![CDATA[/robot/suite/suite]]>
+	</queryString>
+	<field name="Test Case" class="java.lang.String">
+		<fieldDescription><![CDATA[@name]]></fieldDescription>
+	</field>
+	<field name="Test Status" class="java.lang.String">
+		<fieldDescription><![CDATA[status/@status]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="20">
+			<staticText>
+				<reportElement x="380" y="0" width="120" height="20" uuid="34f13eb8-182d-4530-8322-a3bb572aa0e2"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Test Status]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="0" width="381" height="20" uuid="4c237e2e-81ea-47e6-a4cc-ec7da14fa3c5"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Test Case]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<frame>
+				<reportElement style="Style1" x="374" y="0" width="126" height="20" uuid="d1dab843-b591-4ad3-b6fe-6e1b11c787e0"/>
+			</frame>
+			<textField>
+				<reportElement x="0" y="0" width="380" height="20" uuid="d0c60535-3735-4bc3-b666-5e5c4d809e7e"/>
+				<textFieldExpression><![CDATA[$F{Test Case}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Style1" x="380" y="0" width="120" height="20" uuid="efda3377-15af-4d7b-8e28-267afc4dd492"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Test Status}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

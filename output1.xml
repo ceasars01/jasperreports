@@ -1,0 +1,1243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20140802 19:51:16.463" generator="Rebot 2.8.4 (Python 2.7.5 on darwin)">
+<suite id="s1" name="Merged teknosa">
+<suite source="/Users/serhatbolsu/Aliza/Git-No1/robot/implementation/testsuites2/teknosa.txt" id="s1-s1" name="Teknosa">
+<kw type="setup" name="general_keywords.device Setup">
+<doc></doc>
+<arguments>
+<arg>${DEVICE}</arg>
+<arg>${PORT}</arg>
+</arguments>
+<kw type="kw" name="MongoDBLibrary.Connect To Mongodb">
+<doc>Loads pymongo and connects to the MongoDB host using parameters submitted.</doc>
+<arguments>
+<arg>localhost</arg>
+</arguments>
+<msg timestamp="20140802 15:08:31.627" level="INFO">| Connect To MondoDB | dbHost | dbPort | dbMaxPoolSize | dbNetworktimeout | dbDocClass | dbTZAware |
+| Connect To MondoDB | localhost | 27017 | 10 | None | &lt;type 'dict'&gt; | False |</msg>
+<status status="PASS" endtime="20140802 15:08:31.627" starttime="20140802 15:08:31.439"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Set Up">
+<doc>Set Up and set device</doc>
+<arguments>
+<arg>${PROJECTPATH}</arg>
+<arg>${REPORTPATH}</arg>
+<arg>${HOST}</arg>
+<arg>${PORT}</arg>
+<arg>${SUITE_NAME}</arg>
+</arguments>
+<msg timestamp="20140802 15:08:31.758" level="INFO">http://192.168.2.126:10001/xmlrpc
+Project base directory set to: C:\Git-No1\robot\execution\lib\seetestProject</msg>
+<status status="PASS" endtime="20140802 15:08:31.758" starttime="20140802 15:08:31.628"></status>
+</kw>
+<kw type="kw" name="${devicename} = general_keywords.find NotOccupied Device">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="${list} = seetestLibrary.Get Connected Devices">
+<doc>Get connected devices.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140802 15:08:31.824" level="INFO">Collect all the connected devices</msg>
+<msg timestamp="20140802 15:08:31.825" level="INFO">${list} = adb:T40
+</msg>
+<status status="PASS" endtime="20140802 15:08:31.825" starttime="20140802 15:08:31.761"></status>
+</kw>
+<kw type="kw" name="@{CONNECTED_LIST} = String.Split String">
+<doc>Splits the `string` using `separator` as a delimiter string.</doc>
+<arguments>
+<arg>${list}</arg>
+<arg>\n</arg>
+</arguments>
+<msg timestamp="20140802 15:08:31.827" level="INFO">@{CONNECTED_LIST} = [ adb:T40 |  ]</msg>
+<status status="PASS" endtime="20140802 15:08:31.827" starttime="20140802 15:08:31.826"></status>
+</kw>
+<kw type="kw" name="Collections.Convert To List">
+<doc>Converts the given `item` to a list.</doc>
+<arguments>
+<arg>${CONNECTED_LIST}</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:08:31.829" starttime="20140802 15:08:31.828"></status>
+</kw>
+<kw type="kw" name="Collections.Remove From List">
+<doc>Removes and returns the value specified with an `index` from `list`.</doc>
+<arguments>
+<arg>${CONNECTED_LIST}</arg>
+<arg>-1</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:08:31.831" starttime="20140802 15:08:31.829"></status>
+</kw>
+<kw type="kw" name="${count} = BuiltIn.Get Length">
+<doc>Returns and logs the length of the given item.</doc>
+<arguments>
+<arg>${CONNECTED_LIST}</arg>
+</arguments>
+<msg timestamp="20140802 15:08:31.832" level="INFO">Length is 1</msg>
+<msg timestamp="20140802 15:08:31.833" level="INFO">${count} = 1</msg>
+<status status="PASS" endtime="20140802 15:08:31.833" starttime="20140802 15:08:31.831"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
+<arguments>
+<arg>'${count}' == '0'</arg>
+<arg>Fail</arg>
+<arg>There is not any device left.</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:08:31.835" starttime="20140802 15:08:31.834"></status>
+</kw>
+<kw type="kw" name="${random} = BuiltIn.Evaluate">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>random.randint(0, ${count}-1)</arg>
+<arg>random</arg>
+</arguments>
+<msg timestamp="20140802 15:08:31.837" level="INFO">${random} = 0</msg>
+<status status="PASS" endtime="20140802 15:08:31.837" starttime="20140802 15:08:31.835"></status>
+</kw>
+<kw type="kw" name="${device_name} = Collections.Get From List">
+<doc>Returns the value specified with an `index` from `list`.</doc>
+<arguments>
+<arg>${CONNECTED_LIST}</arg>
+<arg>${random}</arg>
+</arguments>
+<msg timestamp="20140802 15:08:31.839" level="INFO">${device_name} = adb:T40</msg>
+<status status="PASS" endtime="20140802 15:08:31.839" starttime="20140802 15:08:31.838"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Set Suite Variable">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${DEVICE_NAME}</arg>
+<arg>${device_name}</arg>
+</arguments>
+<msg timestamp="20140802 15:08:31.842" level="INFO">${DEVICE_NAME} = adb:T40</msg>
+<status status="PASS" endtime="20140802 15:08:31.842" starttime="20140802 15:08:31.840"></status>
+</kw>
+<kw type="kw" name="Collections.Remove Values From List">
+<doc>Removes all occurences of given `values` from `list`.</doc>
+<arguments>
+<arg>${CONNECTED_LIST}</arg>
+<arg>${DEVICE_NAME}</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:08:31.844" starttime="20140802 15:08:31.843"></status>
+</kw>
+<kw type="kw" name="${allresults} = MongoDBLibrary.Retrieve Some Mongodb Records">
+<doc>Retrieve some of the records from a given MongoDB database collection</doc>
+<arguments>
+<arg>automation</arg>
+<arg>testbed</arg>
+<arg>{"tel":"${DEVICE_NAME}"}</arg>
+</arguments>
+<msg timestamp="20140802 15:08:31.848" level="INFO">| ${allResults} | Retrieve Some MongoDB Records | automation | testbed | {"tel":"adb:T40"} |</msg>
+<msg timestamp="20140802 15:08:31.848" level="INFO">${allresults} = </msg>
+<status status="PASS" endtime="20140802 15:08:31.848" starttime="20140802 15:08:31.845"></status>
+</kw>
+<kw type="kw" name="${status} = BuiltIn.Run Keyword And Ignore Error">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Should Be Empty</arg>
+<arg>${allresults}</arg>
+</arguments>
+<kw type="kw" name="BuiltIn.Should Be Empty">
+<doc>Verifies that the given item is empty.</doc>
+<arguments>
+<arg>${allresults}</arg>
+</arguments>
+<msg timestamp="20140802 15:08:31.851" level="INFO">Length is 0</msg>
+<status status="PASS" endtime="20140802 15:08:31.852" starttime="20140802 15:08:31.850"></status>
+</kw>
+<msg timestamp="20140802 15:08:31.852" level="INFO">${status} = ('PASS', None)</msg>
+<status status="PASS" endtime="20140802 15:08:31.852" starttime="20140802 15:08:31.849"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Set Suite Variable">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${DEVICE_STATUS}</arg>
+<arg>${status}</arg>
+</arguments>
+<msg timestamp="20140802 15:08:31.854" level="INFO">${DEVICE_STATUS} = ('PASS', None)</msg>
+<status status="PASS" endtime="20140802 15:08:31.855" starttime="20140802 15:08:31.853"></status>
+</kw>
+<kw type="kw" name="${CONNECTED_COUNT} = BuiltIn.Get Length">
+<doc>Returns and logs the length of the given item.</doc>
+<arguments>
+<arg>${CONNECTED_LIST}</arg>
+</arguments>
+<msg timestamp="20140802 15:08:31.856" level="INFO">Length is 0</msg>
+<msg timestamp="20140802 15:08:31.857" level="INFO">${CONNECTED_COUNT} = 0</msg>
+<status status="PASS" endtime="20140802 15:08:31.857" starttime="20140802 15:08:31.855"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Set Suite Variable">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${CONNECTED_COUNT}</arg>
+</arguments>
+<msg timestamp="20140802 15:08:31.859" level="INFO">${CONNECTED_COUNT} = 0</msg>
+<status status="PASS" endtime="20140802 15:08:31.859" starttime="20140802 15:08:31.858"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Set Suite Variable">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${FAIL_STATUS}</arg>
+<arg>FALSE</arg>
+</arguments>
+<msg timestamp="20140802 15:08:31.861" level="INFO">${FAIL_STATUS} = FALSE</msg>
+<status status="PASS" endtime="20140802 15:08:31.861" starttime="20140802 15:08:31.860"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
+<arguments>
+<arg>'${DEVICE_STATUS[0]}' == 'FAIL'</arg>
+<arg>Run Keyword If</arg>
+<arg>${CONNECTED_COUNT}==0</arg>
+<arg>Set Suite Variable</arg>
+<arg>${FAIL_STATUS}</arg>
+<arg>TRUE</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:08:31.864" starttime="20140802 15:08:31.862"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
+<arguments>
+<arg>'${DEVICE_STATUS[0]}' == 'FAIL'</arg>
+<arg>Run Keyword If</arg>
+<arg>${CONNECTED_COUNT}==0</arg>
+<arg>Fail</arg>
+<arg>There is not any device left.</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:08:31.866" starttime="20140802 15:08:31.865"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
+<arguments>
+<arg>'${DEVICE_STATUS[0]}' == 'FAIL'</arg>
+<arg>find NotOccupied AnotherDevice</arg>
+<arg>${CONNECTED_LIST}</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:08:31.869" starttime="20140802 15:08:31.867"></status>
+</kw>
+<kw type="kw" name="${CONNECTED_COUNT} = BuiltIn.Get Length">
+<doc>Returns and logs the length of the given item.</doc>
+<arguments>
+<arg>${CONNECTED_LIST}</arg>
+</arguments>
+<msg timestamp="20140802 15:08:31.871" level="INFO">Length is 0</msg>
+<msg timestamp="20140802 15:08:31.872" level="INFO">${CONNECTED_COUNT} = 0</msg>
+<status status="PASS" endtime="20140802 15:08:31.871" starttime="20140802 15:08:31.870"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
+<arguments>
+<arg>'${DEVICE_STATUS[0]}' == 'FAIL'</arg>
+<arg>Run Keyword If</arg>
+<arg>${CONNECTED_COUNT}==0</arg>
+<arg>Set Suite Variable</arg>
+<arg>${FAIL_STATUS}</arg>
+<arg>TRUE</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:08:31.874" starttime="20140802 15:08:31.872"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
+<arguments>
+<arg>'${DEVICE_STATUS[0]}' == 'FAIL'</arg>
+<arg>Run Keyword If</arg>
+<arg>${CONNECTED_COUNT}==0</arg>
+<arg>Fail</arg>
+<arg>There is not any device left.</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:08:31.877" starttime="20140802 15:08:31.875"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
+<arguments>
+<arg>'${DEVICE_STATUS[0]}' == 'FAIL'</arg>
+<arg>find NotOccupied AnotherDevice</arg>
+<arg>${CONNECTED_LIST}</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:08:31.881" starttime="20140802 15:08:31.877"></status>
+</kw>
+<msg timestamp="20140802 15:08:31.882" level="INFO">${devicename} = adb:T40</msg>
+<status status="PASS" endtime="20140802 15:08:31.882" starttime="20140802 15:08:31.759"></status>
+</kw>
+<kw type="kw" name="${var1} = BuiltIn.Set Variable If">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>'${DEVICE}'==''</arg>
+<arg>${devicename}</arg>
+<arg>${DEVICE}</arg>
+</arguments>
+<msg timestamp="20140802 15:08:31.884" level="INFO">${var1} = adb:T40</msg>
+<status status="PASS" endtime="20140802 15:08:31.884" starttime="20140802 15:08:31.883"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Set Suite Variable">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${DEVICE}</arg>
+<arg>${var1}</arg>
+</arguments>
+<msg timestamp="20140802 15:08:31.886" level="INFO">${DEVICE} = adb:T40</msg>
+<status status="PASS" endtime="20140802 15:08:31.886" starttime="20140802 15:08:31.885"></status>
+</kw>
+<kw type="kw" name="${insert_result} = MongoDBLibrary.Save Mongodb Records">
+<doc>If to_save already has an "_id" then an update() (upsert) operation is </doc>
+<arguments>
+<arg>automation</arg>
+<arg>testbed</arg>
+<arg>{"tel" : "${DEVICE}"}</arg>
+</arguments>
+<msg timestamp="20140802 15:08:31.889" level="INFO">| ${allResults} | Save MongoDB Records | automation | testbed | {'_id': ObjectId('53dcd4bfb6cf56111aa83d32'), u'tel': u'adb:T40'} |</msg>
+<msg timestamp="20140802 15:08:31.890" level="INFO">${insert_result} = 53dcd4bfb6cf56111aa83d32</msg>
+<status status="PASS" endtime="20140802 15:08:31.890" starttime="20140802 15:08:31.887"></status>
+</kw>
+<kw type="kw" name="${insert_result2} = MongoDBLibrary.Save Mongodb Records">
+<doc>If to_save already has an "_id" then an update() (upsert) operation is </doc>
+<arguments>
+<arg>automation</arg>
+<arg>fullexecution</arg>
+<arg>{"Suite":"${SUITE_NAME}", "tel":"${DEVICE}"}</arg>
+</arguments>
+<msg timestamp="20140802 15:08:31.893" level="INFO">| ${allResults} | Save MongoDB Records | automation | fullexecution | {u'Suite': u'Teknosa', '_id': ObjectId('53dcd4bfb6cf56111aa83d33'), u'tel': u'adb:T40'} |</msg>
+<msg timestamp="20140802 15:08:31.894" level="INFO">${insert_result2} = 53dcd4bfb6cf56111aa83d33</msg>
+<status status="PASS" endtime="20140802 15:08:31.893" starttime="20140802 15:08:31.891"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Set Device">
+<doc>Set the active device under test</doc>
+<arguments>
+<arg>${DEVICE}</arg>
+</arguments>
+<msg timestamp="20140802 15:08:32.010" level="INFO">Set application title to: adb:T40</msg>
+<status status="PASS" endtime="20140802 15:08:32.011" starttime="20140802 15:08:31.894"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${PLATFORM}'=='iOS'</arg>
+<arg>Reset Device Bridge OS</arg>
+<arg>iOS</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:08:32.012" starttime="20140802 15:08:32.011"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${PLATFORM}'=='iOS'</arg>
+<arg>Sleep</arg>
+<arg>7</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:08:32.013" starttime="20140802 15:08:32.013"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${PLATFORM}'=='iOS'</arg>
+<arg>Launch</arg>
+<arg>task:com.experitest.LaunchAgent</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:08:32.014" starttime="20140802 15:08:32.014"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
+<arguments>
+<arg>'${EXEC_TYPE}'=='ci'</arg>
+<arg>install Application and Ready Device</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:08:32.016" starttime="20140802 15:08:32.015"></status>
+</kw>
+<kw type="kw" name="${suite_teardown} = seetestLibrary.Tear Down">
+<doc></doc>
+<arguments>
+</arguments>
+<msg timestamp="20140802 15:08:32.937" level="INFO">${suite_teardown} = C:\Git-No1\reports\test185</msg>
+<status status="PASS" endtime="20140802 15:08:32.937" starttime="20140802 15:08:32.017"></status>
+</kw>
+<status status="PASS" endtime="20140802 15:08:32.938" starttime="20140802 15:08:31.436"></status>
+</kw>
+<kw type="teardown" name="general_keywords.device Teardown">
+<doc></doc>
+<arguments>
+<arg>${DEVICE}</arg>
+</arguments>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${PLATFORM}'=='iOS'</arg>
+<arg>Launch</arg>
+<arg>task:com.experitest.LaunchAgent</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:09:46.692" starttime="20140802 15:09:46.692"></status>
+</kw>
+<kw type="kw" name="${DEVICE} = BuiltIn.Set Variable If">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>'${DEVICE}'==''</arg>
+<arg>${DEVICE_NAME}</arg>
+<arg>${DEVICE}</arg>
+</arguments>
+<msg timestamp="20140802 15:09:46.695" level="INFO">${DEVICE} = adb:T40</msg>
+<status status="PASS" endtime="20140802 15:09:46.694" starttime="20140802 15:09:46.693"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${DEVICE}</arg>
+</arguments>
+<msg timestamp="20140802 15:09:46.696" level="INFO">adb:T40</msg>
+<status status="PASS" endtime="20140802 15:09:46.696" starttime="20140802 15:09:46.695"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Run Keyword Unless">
+<doc>Runs the given keyword with the given arguments, if `condition` is false.</doc>
+<arguments>
+<arg>'${FAIL_STATUS}'=='TRUE'</arg>
+<arg>Release</arg>
+<arg>${DEVICE}</arg>
+<arg>True</arg>
+<arg>False</arg>
+<arg>True</arg>
+</arguments>
+<kw type="kw" name="seetestLibrary.Release">
+<doc>Release device as well as the agent assigned to it. It will enable other tests that are waiting to be executed to start doing so.</doc>
+<arguments>
+<arg>${DEVICE}</arg>
+<arg>True</arg>
+<arg>False</arg>
+<arg>True</arg>
+</arguments>
+<msg timestamp="20140802 15:09:47.174" level="INFO">Release device: adb:T40, release agent: true, remove from devices list: false, release from cloud: true</msg>
+<status status="PASS" endtime="20140802 15:09:47.174" starttime="20140802 15:09:46.699"></status>
+</kw>
+<status status="PASS" endtime="20140802 15:09:47.175" starttime="20140802 15:09:46.697"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Run Keyword Unless">
+<doc>Runs the given keyword with the given arguments, if `condition` is false.</doc>
+<arguments>
+<arg>'${FAIL_STATUS}'=='TRUE'</arg>
+<arg>remove Device Record</arg>
+<arg>${DEVICE}</arg>
+</arguments>
+<kw type="kw" name="general_keywords.remove Device Record">
+<doc></doc>
+<arguments>
+<arg>${DEVICE}</arg>
+</arguments>
+<kw type="kw" name="${remove_result} = MongoDBLibrary.Remove Mongodb Records">
+<doc>Remove some of the records from a given MongoDB database collection</doc>
+<arguments>
+<arg>automation</arg>
+<arg>testbed</arg>
+<arg>{"tel":"${DEVICE}"}</arg>
+</arguments>
+<msg timestamp="20140802 15:09:47.182" level="INFO">| ${allResults} | Remove MongoDB Records | automation | testbed | {u'tel': u'adb:T40'} |</msg>
+<msg timestamp="20140802 15:09:47.182" level="INFO">${remove_result} = None</msg>
+<status status="PASS" endtime="20140802 15:09:47.182" starttime="20140802 15:09:47.180"></status>
+</kw>
+<kw type="kw" name="${remove_result2} = MongoDBLibrary.Remove Mongodb Records">
+<doc>Remove some of the records from a given MongoDB database collection</doc>
+<arguments>
+<arg>automation</arg>
+<arg>fullexecution</arg>
+<arg>{"Suite":"${SUITE_NAME}", "tel":"${DEVICE}"}</arg>
+</arguments>
+<msg timestamp="20140802 15:09:47.185" level="INFO">| ${allResults} | Remove MongoDB Records | automation | fullexecution | {u'Suite': u'Teknosa', u'tel': u'adb:T40'} |</msg>
+<msg timestamp="20140802 15:09:47.186" level="INFO">${remove_result2} = None</msg>
+<status status="PASS" endtime="20140802 15:09:47.186" starttime="20140802 15:09:47.183"></status>
+</kw>
+<status status="PASS" endtime="20140802 15:09:47.186" starttime="20140802 15:09:47.177"></status>
+</kw>
+<status status="PASS" endtime="20140802 15:09:47.187" starttime="20140802 15:09:47.176"></status>
+</kw>
+<status status="PASS" endtime="20140802 15:09:47.187" starttime="20140802 15:09:46.689"></status>
+</kw>
+<test id="s1-s1-t1" name="Uye Giris">
+<kw type="setup" name="general_keywords.open Application">
+<doc></doc>
+<arguments>
+<arg>${APPLICATION}</arg>
+</arguments>
+<kw type="kw" name="seetestLibrary.Set Up">
+<doc>Set Up and set device</doc>
+<arguments>
+<arg>${PROJECTPATH}</arg>
+<arg>${REPORTPATH}</arg>
+<arg>${HOST}</arg>
+<arg>${PORT}</arg>
+<arg>${TEST_NAME}</arg>
+</arguments>
+<msg timestamp="20140802 15:08:33.069" level="INFO">http://192.168.2.126:10001/xmlrpc
+Project base directory set to: C:\Git-No1\robot\execution\lib\seetestProject</msg>
+<status status="PASS" endtime="20140802 15:08:33.069" starttime="20140802 15:08:32.946"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Set Device">
+<doc>Set the active device under test</doc>
+<arguments>
+<arg>${DEVICE}</arg>
+</arguments>
+<msg timestamp="20140802 15:08:33.138" level="INFO">Set application title to: adb:T40</msg>
+<status status="PASS" endtime="20140802 15:08:33.138" starttime="20140802 15:08:33.070"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Set Speed">
+<doc>Set the speed of the test </doc>
+<arguments>
+<arg>Fast</arg>
+</arguments>
+<msg timestamp="20140802 15:08:33.185" level="INFO">Set speed: Fast</msg>
+<status status="PASS" endtime="20140802 15:08:33.185" starttime="20140802 15:08:33.139"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Launch">
+<doc>Launch activity</doc>
+<arguments>
+<arg>${APPLICATION}</arg>
+<arg>True</arg>
+<arg>True</arg>
+</arguments>
+<msg timestamp="20140802 15:08:49.414" level="INFO">Launch native activity com.tmob.teknosa/.ui.startup.TeknosaSplashActivity</msg>
+<status status="PASS" endtime="20140802 15:08:49.414" starttime="20140802 15:08:33.185"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>${timeout_error}</arg>
+<arg>Is Element Found</arg>
+<arg>NATIVE</arg>
+<arg>text=Uygulamayı bir süredir kullanmadığınız için oturumunuz sonlandırılmıştır.</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:08:49.415" starttime="20140802 15:08:49.415"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${timeout_error}'=='True'</arg>
+<arg>Click</arg>
+<arg>NATIVE</arg>
+<arg>text=Tamam</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:08:49.416" starttime="20140802 15:08:49.416"></status>
+</kw>
+<status status="PASS" endtime="20140802 15:08:49.417" starttime="20140802 15:08:32.942"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Set Default Timeout">
+<doc>Set the default timeout for click commands</doc>
+<arguments>
+<arg>20000</arg>
+</arguments>
+<msg timestamp="20140802 15:08:49.887" level="INFO">Set default timeout: 20000</msg>
+<status status="PASS" endtime="20140802 15:08:49.887" starttime="20140802 15:08:49.417"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
+<arguments>
+<arg>'${PLATFORM}'=='Android'</arg>
+<arg>Run Keyword If</arg>
+<arg>'${EXEC_TYPE}'=='ci'</arg>
+<arg>Swipe While Not Found</arg>
+<arg>Right</arg>
+<arg>teknosa</arg>
+<arg>sepet</arg>
+<arg>100</arg>
+<arg>500</arg>
+<arg>0</arg>
+<arg>100</arg>
+<arg>5</arg>
+<arg>False</arg>
+</arguments>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
+<arguments>
+<arg>'${EXEC_TYPE}'=='ci'</arg>
+<arg>Swipe While Not Found</arg>
+<arg>Right</arg>
+<arg>teknosa</arg>
+<arg>sepet</arg>
+<arg>100</arg>
+<arg>500</arg>
+<arg>0</arg>
+<arg>100</arg>
+<arg>5</arg>
+<arg>False</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:08:49.891" starttime="20140802 15:08:49.890"></status>
+</kw>
+<status status="PASS" endtime="20140802 15:08:49.891" starttime="20140802 15:08:49.888"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Wait For Element">
+<doc>Wait for an element to appear in a specified zone</doc>
+<arguments>
+<arg>teknosa</arg>
+<arg>sepet</arg>
+</arguments>
+<msg timestamp="20140802 15:08:56.050" level="INFO">Wait for 'sepet' in zone teknosa, timeout: 10000</msg>
+<status status="PASS" endtime="20140802 15:08:56.050" starttime="20140802 15:08:49.892"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Click">
+<doc>Click on an element</doc>
+<arguments>
+<arg>teknosa</arg>
+<arg>sepet</arg>
+</arguments>
+<msg timestamp="20140802 15:08:57.549" level="INFO">Click 'sepet' in zone teknosa, index: 0, click count: 1</msg>
+<status status="PASS" endtime="20140802 15:08:57.549" starttime="20140802 15:08:56.051"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Capture Screen">
+<doc>Capture the current screen and add it to the report with the given line.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140802 15:08:58.135" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="file:///Volumes/reports/test186/images/869.PNG"&gt;&lt;img src="file:///Volumes/reports/test186/images/869.PNG" width="600px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20140802 15:08:58.135" level="INFO">Capture</msg>
+<status status="PASS" endtime="20140802 15:08:58.135" starttime="20140802 15:08:57.550"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Click</arg>
+<arg>teknosa</arg>
+<arg>Giriş Yap</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:08:58.137" starttime="20140802 15:08:58.136"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>giriş Yap</arg>
+<arg>ceasars01@gmail.com</arg>
+<arg>236723</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:08:58.138" starttime="20140802 15:08:58.137"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Click</arg>
+<arg>teknosa</arg>
+<arg>sepet</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:08:58.139" starttime="20140802 15:08:58.138"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Wait For Element</arg>
+<arg>teknosa</arg>
+<arg>Hos Geldiniz</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:08:58.140" starttime="20140802 15:08:58.139"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Verify Element Found</arg>
+<arg>teknosa</arg>
+<arg>Hos Geldiniz</arg>
+<arg>0</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:08:58.141" starttime="20140802 15:08:58.140"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>çıkış Yap</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:08:58.142" starttime="20140802 15:08:58.141"></status>
+</kw>
+<kw type="teardown" name="general_keywords.close Application">
+<doc></doc>
+<arguments>
+<arg>${APPLICATION_CLOSE}</arg>
+</arguments>
+<kw type="kw" name="BuiltIn.Run Keyword If Test Failed">
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<arguments>
+<arg>Capture Screen</arg>
+<arg>Fail Screen</arg>
+<arg>1</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:08:58.146" starttime="20140802 15:08:58.145"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Application Close">
+<doc>Close application</doc>
+<arguments>
+<arg>${APPLICATION_CLOSE}</arg>
+</arguments>
+<msg timestamp="20140802 15:09:02.323" level="INFO">Close application com.tmob.teknosa</msg>
+<status status="PASS" endtime="20140802 15:09:02.324" starttime="20140802 15:08:58.146"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Run Keyword If Test Failed">
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${PLATFORM}'=='iOS'</arg>
+<arg>Launch</arg>
+<arg>task:com.experitest.LaunchAgent</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:09:02.325" starttime="20140802 15:09:02.324"></status>
+</kw>
+<kw type="kw" name="general_keywords.save Test Result">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="${mongo_result} = MongoDBLibrary.Retrieve Some Mongodb Records">
+<doc>Retrieve some of the records from a given MongoDB database collection</doc>
+<arguments>
+<arg>automation</arg>
+<arg>${SUITE_NAME}</arg>
+<arg>{"ExecutionNo":"${EXEC_NUMBER}", "Suite":"${SUITE_NAME}", "Device":"${DEVICE}", "Test Case":"${TEST_NAME}"}</arg>
+</arguments>
+<msg timestamp="20140802 15:09:02.330" level="INFO">| ${allResults} | Retrieve Some MongoDB Records | automation | Teknosa | {"ExecutionNo":"1", "Suite":"Teknosa", "Device":"adb:T40", "Test Case":"Uye Giris"} |</msg>
+<msg timestamp="20140802 15:09:02.330" level="INFO">${mongo_result} = </msg>
+<status status="PASS" endtime="20140802 15:09:02.330" starttime="20140802 15:09:02.327"></status>
+</kw>
+<kw type="kw" name="${check} = BuiltIn.Run Keyword And Ignore Error">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Should Not Contain</arg>
+<arg>${mongo_result}</arg>
+<arg>u'Device', u'${DEVICE}'</arg>
+</arguments>
+<kw type="kw" name="BuiltIn.Should Not Contain">
+<doc>Fails if `item1` contains `item2` one or more times.</doc>
+<arguments>
+<arg>${mongo_result}</arg>
+<arg>u'Device', u'${DEVICE}'</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:09:02.332" starttime="20140802 15:09:02.331"></status>
+</kw>
+<msg timestamp="20140802 15:09:02.332" level="INFO">${check} = ('PASS', None)</msg>
+<status status="PASS" endtime="20140802 15:09:02.332" starttime="20140802 15:09:02.331"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
+<arguments>
+<arg>'${check[0]}' == 'PASS'</arg>
+<arg>Run Keyword</arg>
+<arg>Save Mongodb Records</arg>
+<arg>automation</arg>
+<arg>${SUITE_NAME}</arg>
+<arg>{"ExecutionNo":"${EXEC_NUMBER}", "Suite":"${SUITE_NAME}", "Device":"${DEVICE}", "Status": "${TEST_STATUS}" }</arg>
+</arguments>
+<kw type="kw" name="BuiltIn.Run Keyword">
+<doc>Executes the given keyword with the given arguments.</doc>
+<arguments>
+<arg>Save Mongodb Records</arg>
+<arg>automation</arg>
+<arg>${SUITE_NAME}</arg>
+<arg>{"ExecutionNo":"${EXEC_NUMBER}", "Suite":"${SUITE_NAME}", "Device":"${DEVICE}", "Status": "${TEST_STATUS}" }</arg>
+</arguments>
+<kw type="kw" name="MongoDBLibrary.Save Mongodb Records">
+<doc>If to_save already has an "_id" then an update() (upsert) operation is </doc>
+<arguments>
+<arg>automation</arg>
+<arg>${SUITE_NAME}</arg>
+<arg>{"ExecutionNo":"${EXEC_NUMBER}", "Suite":"${SUITE_NAME}", "Device":"${DEVICE}", "Status": "${TEST_STATUS}" }</arg>
+</arguments>
+<msg timestamp="20140802 15:09:02.337" level="INFO">| ${allResults} | Save MongoDB Records | automation | Teknosa | {u'Device': u'adb:T40', u'Suite': u'Teknosa', '_id': ObjectId('53dcd4deb6cf56111aa83d34'), u'ExecutionNo': u'1', u'Status': u'PASS'} |</msg>
+<status status="PASS" endtime="20140802 15:09:02.337" starttime="20140802 15:09:02.335"></status>
+</kw>
+<status status="PASS" endtime="20140802 15:09:02.337" starttime="20140802 15:09:02.334"></status>
+</kw>
+<status status="PASS" endtime="20140802 15:09:02.338" starttime="20140802 15:09:02.333"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
+<arguments>
+<arg>'${check[0]}' == 'FAIL'</arg>
+<arg>Remove Mongodb Records</arg>
+<arg>automation</arg>
+<arg>${SUITE_NAME}</arg>
+<arg>{"ExecutionNo":"${EXEC_NUMBER}", "Suite":"${SUITE_NAME}", "Device":"${DEVICE}"}</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:09:02.339" starttime="20140802 15:09:02.338"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
+<arguments>
+<arg>'${check[0]}' == 'FAIL'</arg>
+<arg>Run Keyword</arg>
+<arg>Save Mongodb Records</arg>
+<arg>automation</arg>
+<arg>${SUITE_NAME}</arg>
+<arg>{"ExecutionNo":"${EXEC_NUMBER}", "Suite":"${SUITE_NAME}", "Device":"${DEVICE}", "Status": "${TEST_STATUS}" }</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:09:02.341" starttime="20140802 15:09:02.340"></status>
+</kw>
+<status status="PASS" endtime="20140802 15:09:02.341" starttime="20140802 15:09:02.325"></status>
+</kw>
+<kw type="kw" name="${var_teardown} = seetestLibrary.Tear Down">
+<doc></doc>
+<arguments>
+</arguments>
+<msg timestamp="20140802 15:09:03.463" level="INFO">${var_teardown} = C:\Git-No1\reports\test186</msg>
+<status status="PASS" endtime="20140802 15:09:03.463" starttime="20140802 15:09:02.341"></status>
+</kw>
+<status status="PASS" endtime="20140802 15:09:03.464" starttime="20140802 15:08:58.142"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>adb:T40</tag>
+</tags>
+<status status="PASS" endtime="20140802 15:09:03.464" critical="yes" starttime="20140802 15:08:32.938"></status>
+</test>
+<test id="s1-s1-t2" name="En Yakın Mağazalar Listeleme">
+<kw type="setup" name="general_keywords.open Application">
+<doc></doc>
+<arguments>
+<arg>${APPLICATION}</arg>
+</arguments>
+<kw type="kw" name="seetestLibrary.Set Up">
+<doc>Set Up and set device</doc>
+<arguments>
+<arg>${PROJECTPATH}</arg>
+<arg>${REPORTPATH}</arg>
+<arg>${HOST}</arg>
+<arg>${PORT}</arg>
+<arg>${TEST_NAME}</arg>
+</arguments>
+<msg timestamp="20140802 15:09:04.440" level="INFO">http://192.168.2.126:10001/xmlrpc
+Project base directory set to: C:\Git-No1\robot\execution\lib\seetestProject</msg>
+<status status="PASS" endtime="20140802 15:09:04.440" starttime="20140802 15:09:03.470"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Set Device">
+<doc>Set the active device under test</doc>
+<arguments>
+<arg>${DEVICE}</arg>
+</arguments>
+<msg timestamp="20140802 15:09:05.039" level="INFO">Set application title to: adb:T40</msg>
+<status status="PASS" endtime="20140802 15:09:05.039" starttime="20140802 15:09:04.441"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Set Speed">
+<doc>Set the speed of the test </doc>
+<arguments>
+<arg>Fast</arg>
+</arguments>
+<msg timestamp="20140802 15:09:05.485" level="INFO">Set speed: Fast</msg>
+<status status="PASS" endtime="20140802 15:09:05.485" starttime="20140802 15:09:05.040"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Launch">
+<doc>Launch activity</doc>
+<arguments>
+<arg>${APPLICATION}</arg>
+<arg>True</arg>
+<arg>True</arg>
+</arguments>
+<msg timestamp="20140802 15:09:22.625" level="INFO">Launch native activity com.tmob.teknosa/.ui.startup.TeknosaSplashActivity</msg>
+<status status="PASS" endtime="20140802 15:09:22.625" starttime="20140802 15:09:05.486"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>${timeout_error}</arg>
+<arg>Is Element Found</arg>
+<arg>NATIVE</arg>
+<arg>text=Uygulamayı bir süredir kullanmadığınız için oturumunuz sonlandırılmıştır.</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:09:22.627" starttime="20140802 15:09:22.626"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${timeout_error}'=='True'</arg>
+<arg>Click</arg>
+<arg>NATIVE</arg>
+<arg>text=Tamam</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:09:22.628" starttime="20140802 15:09:22.627"></status>
+</kw>
+<status status="PASS" endtime="20140802 15:09:22.628" starttime="20140802 15:09:03.468"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Wait For Element">
+<doc>Wait for an element to appear in a specified zone</doc>
+<arguments>
+<arg>teknosa</arg>
+<arg>hamburger</arg>
+</arguments>
+<msg timestamp="20140802 15:09:27.512" level="INFO">Wait for 'hamburger' in zone teknosa, timeout: 10000</msg>
+<status status="PASS" endtime="20140802 15:09:27.513" starttime="20140802 15:09:22.629"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Click">
+<doc>Click on an element</doc>
+<arguments>
+<arg>teknosa</arg>
+<arg>hamburger</arg>
+</arguments>
+<msg timestamp="20140802 15:09:28.981" level="INFO">Click 'hamburger' in zone teknosa, index: 0, click count: 1</msg>
+<status status="PASS" endtime="20140802 15:09:28.981" starttime="20140802 15:09:27.513"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Click">
+<doc>Click on an element</doc>
+<arguments>
+<arg>teknosa</arg>
+<arg>En Yakin Teknosa</arg>
+</arguments>
+<msg timestamp="20140802 15:09:30.404" level="INFO">Click 'En Yakin Teknosa' in zone teknosa, index: 0, click count: 1</msg>
+<status status="PASS" endtime="20140802 15:09:30.405" starttime="20140802 15:09:28.982"></status>
+</kw>
+<kw type="kw" name="teknosa_Keywords.verify Haritalar">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
+<arguments>
+<arg>'${PLATFORM}' == 'iOS'</arg>
+<arg>Verify Element Found</arg>
+<arg>teknosa</arg>
+<arg>Harita Menu</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:09:30.409" starttime="20140802 15:09:30.408"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
+<arguments>
+<arg>'${PLATFORM}' == 'iOS'</arg>
+<arg>Verify Element Found</arg>
+<arg>teknosa</arg>
+<arg>Harita Sepet</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:09:30.410" starttime="20140802 15:09:30.409"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Verify Element Found</arg>
+<arg>default</arg>
+<arg>Harita Pin</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:09:30.412" starttime="20140802 15:09:30.411"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Verify Element Found">
+<doc>Verify an element is found</doc>
+<arguments>
+<arg>NATIVE</arg>
+<arg>text=2</arg>
+</arguments>
+<msg timestamp="20140802 15:09:41.341" level="INFO">Status: False</msg>
+<msg timestamp="20140802 15:09:41.346" level="FAIL">"Element text=2 wasn't found" : 
+{'status': False, 'appBounds': '0,0,800,480', 'waitForImage': 'true', 'found': False, 'dtime': '05:09:37', 'errorMessage': "Element text=2 wasn't found", 'logLine': "Verify 'text=2' is found in zone 'NATIVE' index 0", 'img.height': '800', 'WinTitle': 'adb:T40', 'outFile': 'C:\\Users\\IEUser\\AppData\\Roaming\\seetest\\rundata\\8889\\877.PNG', 'step': '6', 'time': 10513, 'scenarioIndex': 0, 'report': True, 'img.width': '480', 'step.index': 6, 'imageIndex': 41431}</msg>
+<status status="FAIL" endtime="20140802 15:09:41.346" starttime="20140802 15:09:30.413"></status>
+</kw>
+<status status="FAIL" endtime="20140802 15:09:41.347" starttime="20140802 15:09:30.405"></status>
+</kw>
+<kw type="teardown" name="general_keywords.close Application">
+<doc></doc>
+<arguments>
+<arg>${APPLICATION_CLOSE}</arg>
+</arguments>
+<kw type="kw" name="BuiltIn.Run Keyword If Test Failed">
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<arguments>
+<arg>Capture Screen</arg>
+<arg>Fail Screen</arg>
+<arg>1</arg>
+</arguments>
+<kw type="kw" name="seetestLibrary.Capture Screen">
+<doc>Capture the current screen and add it to the report with the given line.</doc>
+<arguments>
+<arg>Fail Screen</arg>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20140802 15:09:41.799" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="file:///Volumes/reports/test187/images/877.PNG"&gt;&lt;img src="file:///Volumes/reports/test187/images/877.PNG" width="600px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20140802 15:09:41.799" level="INFO">Fail Screen</msg>
+<status status="PASS" endtime="20140802 15:09:41.799" starttime="20140802 15:09:41.351"></status>
+</kw>
+<status status="PASS" endtime="20140802 15:09:41.799" starttime="20140802 15:09:41.350"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Application Close">
+<doc>Close application</doc>
+<arguments>
+<arg>${APPLICATION_CLOSE}</arg>
+</arguments>
+<msg timestamp="20140802 15:09:45.534" level="INFO">Close application com.tmob.teknosa</msg>
+<status status="PASS" endtime="20140802 15:09:45.534" starttime="20140802 15:09:41.800"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Run Keyword If Test Failed">
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${PLATFORM}'=='iOS'</arg>
+<arg>Launch</arg>
+<arg>task:com.experitest.LaunchAgent</arg>
+</arguments>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
+<arguments>
+<arg>'${PLATFORM}'=='iOS'</arg>
+<arg>Launch</arg>
+<arg>task:com.experitest.LaunchAgent</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:09:45.538" starttime="20140802 15:09:45.537"></status>
+</kw>
+<status status="PASS" endtime="20140802 15:09:45.539" starttime="20140802 15:09:45.536"></status>
+</kw>
+<kw type="kw" name="general_keywords.save Test Result">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="${mongo_result} = MongoDBLibrary.Retrieve Some Mongodb Records">
+<doc>Retrieve some of the records from a given MongoDB database collection</doc>
+<arguments>
+<arg>automation</arg>
+<arg>${SUITE_NAME}</arg>
+<arg>{"ExecutionNo":"${EXEC_NUMBER}", "Suite":"${SUITE_NAME}", "Device":"${DEVICE}", "Test Case":"${TEST_NAME}"}</arg>
+</arguments>
+<msg timestamp="20140802 15:09:45.545" level="INFO">| ${allResults} | Retrieve Some MongoDB Records | automation | Teknosa | {"ExecutionNo":"1", "Suite":"Teknosa", "Device":"adb:T40", "Test Case":"En Yakın Mağazalar Listeleme"} |</msg>
+<msg timestamp="20140802 15:09:45.546" level="INFO">${mongo_result} = </msg>
+<status status="PASS" endtime="20140802 15:09:45.546" starttime="20140802 15:09:45.542"></status>
+</kw>
+<kw type="kw" name="${check} = BuiltIn.Run Keyword And Ignore Error">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Should Not Contain</arg>
+<arg>${mongo_result}</arg>
+<arg>u'Device', u'${DEVICE}'</arg>
+</arguments>
+<kw type="kw" name="BuiltIn.Should Not Contain">
+<doc>Fails if `item1` contains `item2` one or more times.</doc>
+<arguments>
+<arg>${mongo_result}</arg>
+<arg>u'Device', u'${DEVICE}'</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:09:45.549" starttime="20140802 15:09:45.547"></status>
+</kw>
+<msg timestamp="20140802 15:09:45.549" level="INFO">${check} = ('PASS', None)</msg>
+<status status="PASS" endtime="20140802 15:09:45.549" starttime="20140802 15:09:45.546"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
+<arguments>
+<arg>'${check[0]}' == 'PASS'</arg>
+<arg>Run Keyword</arg>
+<arg>Save Mongodb Records</arg>
+<arg>automation</arg>
+<arg>${SUITE_NAME}</arg>
+<arg>{"ExecutionNo":"${EXEC_NUMBER}", "Suite":"${SUITE_NAME}", "Device":"${DEVICE}", "Status": "${TEST_STATUS}" }</arg>
+</arguments>
+<kw type="kw" name="BuiltIn.Run Keyword">
+<doc>Executes the given keyword with the given arguments.</doc>
+<arguments>
+<arg>Save Mongodb Records</arg>
+<arg>automation</arg>
+<arg>${SUITE_NAME}</arg>
+<arg>{"ExecutionNo":"${EXEC_NUMBER}", "Suite":"${SUITE_NAME}", "Device":"${DEVICE}", "Status": "${TEST_STATUS}" }</arg>
+</arguments>
+<kw type="kw" name="MongoDBLibrary.Save Mongodb Records">
+<doc>If to_save already has an "_id" then an update() (upsert) operation is </doc>
+<arguments>
+<arg>automation</arg>
+<arg>${SUITE_NAME}</arg>
+<arg>{"ExecutionNo":"${EXEC_NUMBER}", "Suite":"${SUITE_NAME}", "Device":"${DEVICE}", "Status": "${TEST_STATUS}" }</arg>
+</arguments>
+<msg timestamp="20140802 15:09:45.556" level="INFO">| ${allResults} | Save MongoDB Records | automation | Teknosa | {u'Device': u'adb:T40', u'Suite': u'Teknosa', '_id': ObjectId('53dcd509b6cf56111aa83d35'), u'ExecutionNo': u'1', u'Status': u'FAIL'} |</msg>
+<status status="PASS" endtime="20140802 15:09:45.556" starttime="20140802 15:09:45.552"></status>
+</kw>
+<status status="PASS" endtime="20140802 15:09:45.556" starttime="20140802 15:09:45.551"></status>
+</kw>
+<status status="PASS" endtime="20140802 15:09:45.556" starttime="20140802 15:09:45.550"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
+<arguments>
+<arg>'${check[0]}' == 'FAIL'</arg>
+<arg>Remove Mongodb Records</arg>
+<arg>automation</arg>
+<arg>${SUITE_NAME}</arg>
+<arg>{"ExecutionNo":"${EXEC_NUMBER}", "Suite":"${SUITE_NAME}", "Device":"${DEVICE}"}</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:09:45.559" starttime="20140802 15:09:45.557"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
+<arguments>
+<arg>'${check[0]}' == 'FAIL'</arg>
+<arg>Run Keyword</arg>
+<arg>Save Mongodb Records</arg>
+<arg>automation</arg>
+<arg>${SUITE_NAME}</arg>
+<arg>{"ExecutionNo":"${EXEC_NUMBER}", "Suite":"${SUITE_NAME}", "Device":"${DEVICE}", "Status": "${TEST_STATUS}" }</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:09:45.561" starttime="20140802 15:09:45.559"></status>
+</kw>
+<status status="PASS" endtime="20140802 15:09:45.561" starttime="20140802 15:09:45.539"></status>
+</kw>
+<kw type="kw" name="${var_teardown} = seetestLibrary.Tear Down">
+<doc></doc>
+<arguments>
+</arguments>
+<msg timestamp="20140802 15:09:46.685" level="INFO">${var_teardown} = C:\Git-No1\reports\test187</msg>
+<status status="PASS" endtime="20140802 15:09:46.685" starttime="20140802 15:09:45.562"></status>
+</kw>
+<status status="PASS" endtime="20140802 15:09:46.686" starttime="20140802 15:09:41.348"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>adb:T40</tag>
+</tags>
+<status status="FAIL" endtime="20140802 15:09:46.686" critical="yes" starttime="20140802 15:09:03.465">"Element text=2 wasn't found" : 
+{'status': False, 'appBounds': '0,0,800,480', 'waitForImage': 'true', 'found': False, 'dtime': '05:09:37', 'errorMessage': "Element text=2 wasn't found", 'logLine': "Verify 'text=2' is found in zone 'NATIVE' index 0", 'img.height': '800', 'WinTitle': 'adb:T40', 'outFile': 'C:\\Users\\IEUser\\AppData\\Roaming\\seetest\\rundata\\8889\\877.PNG', 'step': '6', 'time': 10513, 'scenarioIndex': 0, 'report': True, 'img.width': '480', 'step.index': 6, 'imageIndex': 41431}</status>
+</test>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="FAIL" endtime="20140802 15:09:47.187" starttime="20140802 15:08:30.455"></status>
+</suite>
+<suite source="/Users/serhatbolsu/Aliza/Git-No1/robot/implementation/testsuites2/teknosa.txt" id="s1-s2" name="Teknosa">
+<kw type="setup" name="general_keywords.device Setup">
+<doc></doc>
+<arguments>
+<arg>${DEVICE}</arg>
+<arg>${PORT}</arg>
+</arguments>
+<kw type="kw" name="MongoDBLibrary.Connect To Mongodb">
+<doc>Loads pymongo and connects to the MongoDB host using parameters submitted.</doc>
+<arguments>
+<arg>localhost</arg>
+</arguments>
+<msg timestamp="20140802 15:08:31.628" level="INFO">| Connect To MondoDB | dbHost | dbPort | dbMaxPoolSize | dbNetworktimeout | dbDocClass | dbTZAware |
+| Connect To MondoDB | localhost | 27017 | 10 | None | &lt;type 'dict'&gt; | False |</msg>
+<status status="PASS" endtime="20140802 15:08:31.628" starttime="20140802 15:08:31.441"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Set Up">
+<doc>Set Up and set device</doc>
+<arguments>
+<arg>${PROJECTPATH}</arg>
+<arg>${REPORTPATH}</arg>
+<arg>${HOST}</arg>
+<arg>${PORT}</arg>
+<arg>${SUITE_NAME}</arg>
+</arguments>
+<msg timestamp="20140802 15:08:31.651" level="INFO">http://192.168.2.126:10003/xmlrpc</msg>
+<msg timestamp="20140802 15:08:31.669" level="FAIL">error: [Errno 61] Connection refused</msg>
+<status status="FAIL" endtime="20140802 15:08:31.669" starttime="20140802 15:08:31.629"></status>
+</kw>
+<status status="FAIL" endtime="20140802 15:08:31.670" starttime="20140802 15:08:31.438"></status>
+</kw>
+<kw type="teardown" name="general_keywords.device Teardown">
+<doc></doc>
+<arguments>
+<arg>${DEVICE}</arg>
+</arguments>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${PLATFORM}'=='iOS'</arg>
+<arg>Launch</arg>
+<arg>task:com.experitest.LaunchAgent</arg>
+</arguments>
+<status status="PASS" endtime="20140802 15:08:31.683" starttime="20140802 15:08:31.683"></status>
+</kw>
+<kw type="kw" name="${DEVICE} = BuiltIn.Set Variable If">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>'${DEVICE}'==''</arg>
+<arg>${DEVICE_NAME}</arg>
+<arg>${DEVICE}</arg>
+</arguments>
+<msg timestamp="20140802 15:08:31.686" level="INFO">${DEVICE} = adb:GT-N7100</msg>
+<status status="PASS" endtime="20140802 15:08:31.686" starttime="20140802 15:08:31.684"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${DEVICE}</arg>
+</arguments>
+<msg timestamp="20140802 15:08:31.688" level="INFO">adb:GT-N7100</msg>
+<status status="PASS" endtime="20140802 15:08:31.688" starttime="20140802 15:08:31.687"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Run Keyword Unless">
+<doc>Runs the given keyword with the given arguments, if `condition` is false.</doc>
+<arguments>
+<arg>'${FAIL_STATUS}'=='TRUE'</arg>
+<arg>Release</arg>
+<arg>${DEVICE}</arg>
+<arg>True</arg>
+<arg>False</arg>
+<arg>True</arg>
+</arguments>
+<msg timestamp="20140802 15:08:31.690" level="FAIL">Non-existing variable '${FAIL_STATUS}'.</msg>
+<status status="FAIL" endtime="20140802 15:08:31.690" starttime="20140802 15:08:31.689"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Run Keyword Unless">
+<doc>Runs the given keyword with the given arguments, if `condition` is false.</doc>
+<arguments>
+<arg>'${FAIL_STATUS}'=='TRUE'</arg>
+<arg>remove Device Record</arg>
+<arg>${DEVICE}</arg>
+</arguments>
+<msg timestamp="20140802 15:08:31.692" level="FAIL">Non-existing variable '${FAIL_STATUS}'.</msg>
+<status status="FAIL" endtime="20140802 15:08:31.692" starttime="20140802 15:08:31.691"></status>
+</kw>
+<status status="FAIL" endtime="20140802 15:08:31.693" starttime="20140802 15:08:31.680">Several failures occurred:
+
+1) Non-existing variable '${FAIL_STATUS}'.
+
+2) Non-existing variable '${FAIL_STATUS}'.</status>
+</kw>
+<test id="s1-s2-t1" name="Uye Giris">
+<doc></doc>
+<tags>
+<tag>adb:GT-N7100</tag>
+</tags>
+<status status="FAIL" endtime="20140802 15:08:31.673" critical="yes" starttime="20140802 15:08:31.670">Parent suite setup failed:
+error: [Errno 61] Connection refused
+
+Also parent suite teardown failed:
+Several failures occurred:
+
+1) Non-existing variable '${FAIL_STATUS}'.
+
+2) Non-existing variable '${FAIL_STATUS}'.</status>
+</test>
+<test id="s1-s2-t2" name="En Yakın Mağazalar Listeleme">
+<doc></doc>
+<tags>
+<tag>adb:GT-N7100</tag>
+</tags>
+<status status="FAIL" endtime="20140802 15:08:31.678" critical="yes" starttime="20140802 15:08:31.674">Parent suite setup failed:
+error: [Errno 61] Connection refused
+
+Also parent suite teardown failed:
+Several failures occurred:
+
+1) Non-existing variable '${FAIL_STATUS}'.
+
+2) Non-existing variable '${FAIL_STATUS}'.</status>
+</test>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="FAIL" endtime="20140802 15:08:31.694" starttime="20140802 15:08:30.466">Suite setup failed:
+error: [Errno 61] Connection refused
+
+Also suite teardown failed:
+Several failures occurred:
+
+1) Non-existing variable '${FAIL_STATUS}'.
+
+2) Non-existing variable '${FAIL_STATUS}'.</status>
+</suite>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="FAIL" elapsedtime="77960" endtime="N/A" starttime="N/A"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="3" pass="1">Critical Tests</stat>
+<stat fail="3" pass="1">All Tests</stat>
+</total>
+<tag>
+<stat info="" links="" doc="" combined="" pass="0" fail="2">adb:GT-N7100</stat>
+<stat info="" links="" doc="" combined="" pass="1" fail="1">adb:T40</stat>
+</tag>
+<suite>
+<stat fail="3" pass="1" id="s1" name="Merged teknosa">Merged teknosa</stat>
+<stat fail="1" pass="1" id="s1-s1" name="Teknosa">Merged teknosa.Teknosa</stat>
+<stat fail="2" pass="0" id="s1-s2" name="Teknosa">Merged teknosa.Teknosa</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

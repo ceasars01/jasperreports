@@ -1,0 +1,1074 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20140803 01:32:23.060" generator="Rebot 2.8.4 (Python 2.7.5 on darwin)">
+<suite id="s1" name="Merged Teknosa">
+<suite source="/Users/serhatbolsu/Aliza/Git-No1/robot/implementation/testsuites2/teknosa.txt" id="s1-s1" name="Teknosa">
+<kw type="setup" name="general_keywords.device Setup">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>${DEVICE}</arg>
+<arg>${PORT}</arg>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:21.934" starttime="20140803 01:32:21.860"></status>
+</kw>
+<kw type="teardown" name="general_keywords.device Teardown">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>${DEVICE}</arg>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:22.162" starttime="20140803 01:32:22.147"></status>
+</kw>
+<test id="s1-s1-t1" name="Uye Giris">
+<kw type="setup" name="general_keywords.open Application">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>${APPLICATION}</arg>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:21.942" starttime="20140803 01:32:21.936"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Set Default Timeout">
+<doc>Set the default timeout for click commands
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>20000</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.943" starttime="20140803 01:32:21.943"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>'${PLATFORM}'=='Android'</arg>
+<arg>Run Keyword If</arg>
+<arg>'${EXEC_TYPE}'=='ci'</arg>
+<arg>Swipe While Not Found</arg>
+<arg>Right</arg>
+<arg>teknosa</arg>
+<arg>sepet</arg>
+<arg>100</arg>
+<arg>500</arg>
+<arg>0</arg>
+<arg>100</arg>
+<arg>5</arg>
+<arg>False</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.947" starttime="20140803 01:32:21.943"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Wait For Element">
+<doc>Wait for an element to appear in a specified zone
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>teknosa</arg>
+<arg>sepet</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.948" starttime="20140803 01:32:21.947"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Click">
+<doc>Click on an element
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>teknosa</arg>
+<arg>sepet</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.948" starttime="20140803 01:32:21.948"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Capture Screen">
+<doc>Capture the current screen and add it to the report with the given line.
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.949" starttime="20140803 01:32:21.949"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>Click</arg>
+<arg>teknosa</arg>
+<arg>Giriş Yap</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.950" starttime="20140803 01:32:21.949"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>giriş Yap</arg>
+<arg>ceasars01@gmail.com</arg>
+<arg>236723</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.950" starttime="20140803 01:32:21.950"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>Click</arg>
+<arg>teknosa</arg>
+<arg>sepet</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.951" starttime="20140803 01:32:21.951"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>Wait For Element</arg>
+<arg>teknosa</arg>
+<arg>Hos Geldiniz</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.952" starttime="20140803 01:32:21.952"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>Verify Element Found</arg>
+<arg>teknosa</arg>
+<arg>Hos Geldiniz</arg>
+<arg>0</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.953" starttime="20140803 01:32:21.952"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>çıkış Yap</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.953" starttime="20140803 01:32:21.953"></status>
+</kw>
+<kw type="teardown" name="general_keywords.close Application">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>${APPLICATION_CLOSE}</arg>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:21.972" starttime="20140803 01:32:21.954"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>adb:T40</tag>
+</tags>
+<status status="PASS" endtime="20140803 01:32:21.973" critical="yes" starttime="20140803 01:32:21.934"></status>
+</test>
+<test id="s1-s1-t2" name="En Yakın Mağazalar Listeleme">
+<kw type="setup" name="general_keywords.open Application">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>${APPLICATION}</arg>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:21.982" starttime="20140803 01:32:21.976"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Wait For Element">
+<doc>Wait for an element to appear in a specified zone
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>teknosa</arg>
+<arg>hamburger</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.982" starttime="20140803 01:32:21.982"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Click">
+<doc>Click on an element
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>teknosa</arg>
+<arg>hamburger</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.983" starttime="20140803 01:32:21.983"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Click">
+<doc>Click on an element
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>teknosa</arg>
+<arg>En Yakin Teknosa</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.984" starttime="20140803 01:32:21.983"></status>
+</kw>
+<kw type="kw" name="teknosa_Keywords.verify Haritalar">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:22.009" starttime="20140803 01:32:21.984"></status>
+</kw>
+<kw type="teardown" name="general_keywords.close Application">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>${APPLICATION_CLOSE}</arg>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:22.033" starttime="20140803 01:32:22.010"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>adb:T40</tag>
+</tags>
+<status status="PASS" endtime="20140803 01:32:22.033" critical="yes" starttime="20140803 01:32:21.973"></status>
+</test>
+<test id="s1-s1-t3" name="Sepetim - Ürün Ekleme">
+<kw type="setup" name="general_keywords.open Application">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>${APPLICATION}</arg>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:22.045" starttime="20140803 01:32:22.037"></status>
+</kw>
+<kw type="kw" name="teknosa_Keywords.ürün detay">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:22.068" starttime="20140803 01:32:22.046"></status>
+</kw>
+<kw type="kw" name="teknosa_Keywords.ürünü sepete ekleme">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:22.079" starttime="20140803 01:32:22.068"></status>
+</kw>
+<kw type="kw" name="teknosa_Keywords.ürünü sepetden sil">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:22.119" starttime="20140803 01:32:22.079"></status>
+</kw>
+<kw type="teardown" name="general_keywords.close Application">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>${APPLICATION_CLOSE}</arg>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:22.145" starttime="20140803 01:32:22.120"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>adb:T40</tag>
+</tags>
+<status status="PASS" endtime="20140803 01:32:22.145" critical="yes" starttime="20140803 01:32:22.034"></status>
+</test>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="PASS" endtime="20140803 01:32:22.163" starttime="20140803 01:32:21.346"></status>
+</suite>
+<suite source="/Users/serhatbolsu/Aliza/Git-No1/robot/implementation/testsuites2/teknosa.txt" id="s1-s2" name="Teknosa">
+<kw type="setup" name="general_keywords.device Setup">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>${DEVICE}</arg>
+<arg>${PORT}</arg>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:21.926" starttime="20140803 01:32:21.847"></status>
+</kw>
+<kw type="teardown" name="general_keywords.device Teardown">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>${DEVICE}</arg>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:22.144" starttime="20140803 01:32:22.130"></status>
+</kw>
+<test id="s1-s2-t1" name="Uye Giris">
+<kw type="setup" name="general_keywords.open Application">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>${APPLICATION}</arg>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:21.934" starttime="20140803 01:32:21.928"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Set Default Timeout">
+<doc>Set the default timeout for click commands
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>20000</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.935" starttime="20140803 01:32:21.934"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>'${PLATFORM}'=='Android'</arg>
+<arg>Run Keyword If</arg>
+<arg>'${EXEC_TYPE}'=='ci'</arg>
+<arg>Swipe While Not Found</arg>
+<arg>Right</arg>
+<arg>teknosa</arg>
+<arg>sepet</arg>
+<arg>100</arg>
+<arg>500</arg>
+<arg>0</arg>
+<arg>100</arg>
+<arg>5</arg>
+<arg>False</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.938" starttime="20140803 01:32:21.935"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Wait For Element">
+<doc>Wait for an element to appear in a specified zone
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>teknosa</arg>
+<arg>sepet</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.939" starttime="20140803 01:32:21.939"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Click">
+<doc>Click on an element
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>teknosa</arg>
+<arg>sepet</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.940" starttime="20140803 01:32:21.939"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Capture Screen">
+<doc>Capture the current screen and add it to the report with the given line.
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.940" starttime="20140803 01:32:21.940"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>Click</arg>
+<arg>teknosa</arg>
+<arg>Giriş Yap</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.941" starttime="20140803 01:32:21.941"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>giriş Yap</arg>
+<arg>ceasars01@gmail.com</arg>
+<arg>236723</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.942" starttime="20140803 01:32:21.941"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>Click</arg>
+<arg>teknosa</arg>
+<arg>sepet</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.943" starttime="20140803 01:32:21.942"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>Wait For Element</arg>
+<arg>teknosa</arg>
+<arg>Hos Geldiniz</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.943" starttime="20140803 01:32:21.943"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>Verify Element Found</arg>
+<arg>teknosa</arg>
+<arg>Hos Geldiniz</arg>
+<arg>0</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.944" starttime="20140803 01:32:21.944"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>çıkış Yap</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.945" starttime="20140803 01:32:21.944"></status>
+</kw>
+<kw type="teardown" name="general_keywords.close Application">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>${APPLICATION_CLOSE}</arg>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:21.964" starttime="20140803 01:32:21.945"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>adb:HTC One</tag>
+</tags>
+<status status="PASS" endtime="20140803 01:32:21.964" critical="yes" starttime="20140803 01:32:21.926"></status>
+</test>
+<test id="s1-s2-t2" name="En Yakın Mağazalar Listeleme">
+<kw type="setup" name="general_keywords.open Application">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>${APPLICATION}</arg>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:21.974" starttime="20140803 01:32:21.967"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Wait For Element">
+<doc>Wait for an element to appear in a specified zone
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>teknosa</arg>
+<arg>hamburger</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.975" starttime="20140803 01:32:21.975"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Click">
+<doc>Click on an element
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>teknosa</arg>
+<arg>hamburger</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.976" starttime="20140803 01:32:21.975"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Click">
+<doc>Click on an element
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>teknosa</arg>
+<arg>En Yakin Teknosa</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.976" starttime="20140803 01:32:21.976"></status>
+</kw>
+<kw type="kw" name="teknosa_Keywords.verify Haritalar">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:21.995" starttime="20140803 01:32:21.977"></status>
+</kw>
+<kw type="teardown" name="general_keywords.close Application">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>${APPLICATION_CLOSE}</arg>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:22.022" starttime="20140803 01:32:21.995"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>adb:HTC One</tag>
+</tags>
+<status status="PASS" endtime="20140803 01:32:22.022" critical="yes" starttime="20140803 01:32:21.965"></status>
+</test>
+<test id="s1-s2-t3" name="Sepetim - Ürün Ekleme">
+<kw type="setup" name="general_keywords.open Application">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>${APPLICATION}</arg>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:22.040" starttime="20140803 01:32:22.034"></status>
+</kw>
+<kw type="kw" name="teknosa_Keywords.ürün detay">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:22.061" starttime="20140803 01:32:22.040"></status>
+</kw>
+<kw type="kw" name="teknosa_Keywords.ürünü sepete ekleme">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:22.071" starttime="20140803 01:32:22.061"></status>
+</kw>
+<kw type="kw" name="teknosa_Keywords.ürünü sepetden sil">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:22.085" starttime="20140803 01:32:22.072"></status>
+</kw>
+<kw type="teardown" name="general_keywords.close Application">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>${APPLICATION_CLOSE}</arg>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:22.128" starttime="20140803 01:32:22.085"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>adb:HTC One</tag>
+</tags>
+<status status="PASS" endtime="20140803 01:32:22.128" critical="yes" starttime="20140803 01:32:22.032"></status>
+</test>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="PASS" endtime="20140803 01:32:22.144" starttime="20140803 01:32:21.340"></status>
+</suite>
+<suite source="/Users/serhatbolsu/Aliza/Git-No1/robot/implementation/testsuites2/teknosa.txt" id="s1-s3" name="Teknosa">
+<kw type="setup" name="general_keywords.device Setup">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>${DEVICE}</arg>
+<arg>${PORT}</arg>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:21.925" starttime="20140803 01:32:21.844"></status>
+</kw>
+<kw type="teardown" name="general_keywords.device Teardown">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>${DEVICE}</arg>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:22.147" starttime="20140803 01:32:22.132"></status>
+</kw>
+<test id="s1-s3-t1" name="Uye Giris">
+<kw type="setup" name="general_keywords.open Application">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>${APPLICATION}</arg>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:21.933" starttime="20140803 01:32:21.927"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Set Default Timeout">
+<doc>Set the default timeout for click commands
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>20000</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.934" starttime="20140803 01:32:21.934"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>'${PLATFORM}'=='Android'</arg>
+<arg>Run Keyword If</arg>
+<arg>'${EXEC_TYPE}'=='ci'</arg>
+<arg>Swipe While Not Found</arg>
+<arg>Right</arg>
+<arg>teknosa</arg>
+<arg>sepet</arg>
+<arg>100</arg>
+<arg>500</arg>
+<arg>0</arg>
+<arg>100</arg>
+<arg>5</arg>
+<arg>False</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.938" starttime="20140803 01:32:21.934"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Wait For Element">
+<doc>Wait for an element to appear in a specified zone
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>teknosa</arg>
+<arg>sepet</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.938" starttime="20140803 01:32:21.938"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Click">
+<doc>Click on an element
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>teknosa</arg>
+<arg>sepet</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.939" starttime="20140803 01:32:21.939"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Capture Screen">
+<doc>Capture the current screen and add it to the report with the given line.
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.940" starttime="20140803 01:32:21.939"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>Click</arg>
+<arg>teknosa</arg>
+<arg>Giriş Yap</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.940" starttime="20140803 01:32:21.940"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>giriş Yap</arg>
+<arg>ceasars01@gmail.com</arg>
+<arg>236723</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.941" starttime="20140803 01:32:21.941"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>Click</arg>
+<arg>teknosa</arg>
+<arg>sepet</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.942" starttime="20140803 01:32:21.941"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>Wait For Element</arg>
+<arg>teknosa</arg>
+<arg>Hos Geldiniz</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.942" starttime="20140803 01:32:21.942"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>Verify Element Found</arg>
+<arg>teknosa</arg>
+<arg>Hos Geldiniz</arg>
+<arg>0</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.943" starttime="20140803 01:32:21.943"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>çıkış Yap</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.944" starttime="20140803 01:32:21.944"></status>
+</kw>
+<kw type="teardown" name="general_keywords.close Application">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>${APPLICATION_CLOSE}</arg>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:21.964" starttime="20140803 01:32:21.944"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>adb:GT-N7100</tag>
+</tags>
+<status status="PASS" endtime="20140803 01:32:21.964" critical="yes" starttime="20140803 01:32:21.925"></status>
+</test>
+<test id="s1-s3-t2" name="En Yakın Mağazalar Listeleme">
+<kw type="setup" name="general_keywords.open Application">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>${APPLICATION}</arg>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:21.973" starttime="20140803 01:32:21.967"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Wait For Element">
+<doc>Wait for an element to appear in a specified zone
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>teknosa</arg>
+<arg>hamburger</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.974" starttime="20140803 01:32:21.974"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Click">
+<doc>Click on an element
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>teknosa</arg>
+<arg>hamburger</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.975" starttime="20140803 01:32:21.974"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Click">
+<doc>Click on an element
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>teknosa</arg>
+<arg>En Yakin Teknosa</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.975" starttime="20140803 01:32:21.975"></status>
+</kw>
+<kw type="kw" name="teknosa_Keywords.verify Haritalar">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:21.994" starttime="20140803 01:32:21.976"></status>
+</kw>
+<kw type="teardown" name="general_keywords.close Application">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>${APPLICATION_CLOSE}</arg>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:22.029" starttime="20140803 01:32:21.994"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>adb:GT-N7100</tag>
+</tags>
+<status status="PASS" endtime="20140803 01:32:22.030" critical="yes" starttime="20140803 01:32:21.965"></status>
+</test>
+<test id="s1-s3-t3" name="Sepetim - Ürün Ekleme">
+<kw type="setup" name="general_keywords.open Application">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>${APPLICATION}</arg>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:22.039" starttime="20140803 01:32:22.032"></status>
+</kw>
+<kw type="kw" name="teknosa_Keywords.ürün detay">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:22.058" starttime="20140803 01:32:22.039"></status>
+</kw>
+<kw type="kw" name="teknosa_Keywords.ürünü sepete ekleme">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:22.069" starttime="20140803 01:32:22.058"></status>
+</kw>
+<kw type="kw" name="teknosa_Keywords.ürünü sepetden sil">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:22.082" starttime="20140803 01:32:22.070"></status>
+</kw>
+<kw type="teardown" name="general_keywords.close Application">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>${APPLICATION_CLOSE}</arg>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:22.129" starttime="20140803 01:32:22.082"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>adb:GT-N7100</tag>
+</tags>
+<status status="PASS" endtime="20140803 01:32:22.130" critical="yes" starttime="20140803 01:32:22.030"></status>
+</test>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="PASS" endtime="20140803 01:32:22.148" starttime="20140803 01:32:21.341"></status>
+</suite>
+<suite source="/Users/serhatbolsu/Aliza/Git-No1/robot/implementation/testsuites2/teknosa.txt" id="s1-s4" name="Teknosa">
+<kw type="setup" name="general_keywords.device Setup">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>${DEVICE}</arg>
+<arg>${PORT}</arg>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:21.930" starttime="20140803 01:32:21.854"></status>
+</kw>
+<kw type="teardown" name="general_keywords.device Teardown">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>${DEVICE}</arg>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:22.178" starttime="20140803 01:32:22.168"></status>
+</kw>
+<test id="s1-s4-t1" name="Uye Giris">
+<kw type="setup" name="general_keywords.open Application">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>${APPLICATION}</arg>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:21.939" starttime="20140803 01:32:21.933"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Set Default Timeout">
+<doc>Set the default timeout for click commands
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>20000</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.940" starttime="20140803 01:32:21.940"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>'${PLATFORM}'=='Android'</arg>
+<arg>Run Keyword If</arg>
+<arg>'${EXEC_TYPE}'=='ci'</arg>
+<arg>Swipe While Not Found</arg>
+<arg>Right</arg>
+<arg>teknosa</arg>
+<arg>sepet</arg>
+<arg>100</arg>
+<arg>500</arg>
+<arg>0</arg>
+<arg>100</arg>
+<arg>5</arg>
+<arg>False</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.944" starttime="20140803 01:32:21.941"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Wait For Element">
+<doc>Wait for an element to appear in a specified zone
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>teknosa</arg>
+<arg>sepet</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.944" starttime="20140803 01:32:21.944"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Click">
+<doc>Click on an element
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>teknosa</arg>
+<arg>sepet</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.945" starttime="20140803 01:32:21.945"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Capture Screen">
+<doc>Capture the current screen and add it to the report with the given line.
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.946" starttime="20140803 01:32:21.945"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>Click</arg>
+<arg>teknosa</arg>
+<arg>Giriş Yap</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.946" starttime="20140803 01:32:21.946"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>giriş Yap</arg>
+<arg>ceasars01@gmail.com</arg>
+<arg>236723</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.947" starttime="20140803 01:32:21.947"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>Click</arg>
+<arg>teknosa</arg>
+<arg>sepet</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.948" starttime="20140803 01:32:21.947"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>Wait For Element</arg>
+<arg>teknosa</arg>
+<arg>Hos Geldiniz</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.949" starttime="20140803 01:32:21.948"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>Verify Element Found</arg>
+<arg>teknosa</arg>
+<arg>Hos Geldiniz</arg>
+<arg>0</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.949" starttime="20140803 01:32:21.949"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>çıkış Yap</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.950" starttime="20140803 01:32:21.950"></status>
+</kw>
+<kw type="teardown" name="general_keywords.close Application">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>${APPLICATION_CLOSE}</arg>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:21.970" starttime="20140803 01:32:21.950"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>adb:Nexus 5</tag>
+</tags>
+<status status="PASS" endtime="20140803 01:32:21.970" critical="yes" starttime="20140803 01:32:21.931"></status>
+</test>
+<test id="s1-s4-t2" name="En Yakın Mağazalar Listeleme">
+<kw type="setup" name="general_keywords.open Application">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>${APPLICATION}</arg>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:21.980" starttime="20140803 01:32:21.973"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Wait For Element">
+<doc>Wait for an element to appear in a specified zone
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>teknosa</arg>
+<arg>hamburger</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.980" starttime="20140803 01:32:21.980"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Click">
+<doc>Click on an element
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>teknosa</arg>
+<arg>hamburger</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.981" starttime="20140803 01:32:21.981"></status>
+</kw>
+<kw type="kw" name="seetestLibrary.Click">
+<doc>Click on an element
+
+_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>teknosa</arg>
+<arg>En Yakin Teknosa</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20140803 01:32:21.982" starttime="20140803 01:32:21.982"></status>
+</kw>
+<kw type="kw" name="teknosa_Keywords.verify Haritalar">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:22.012" starttime="20140803 01:32:21.982"></status>
+</kw>
+<kw type="teardown" name="general_keywords.close Application">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>${APPLICATION_CLOSE}</arg>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:22.035" starttime="20140803 01:32:22.013"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>adb:Nexus 5</tag>
+</tags>
+<status status="PASS" endtime="20140803 01:32:22.035" critical="yes" starttime="20140803 01:32:21.971"></status>
+</test>
+<test id="s1-s4-t3" name="Sepetim - Ürün Ekleme">
+<kw type="setup" name="general_keywords.open Application">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>${APPLICATION}</arg>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:22.047" starttime="20140803 01:32:22.040"></status>
+</kw>
+<kw type="kw" name="teknosa_Keywords.ürün detay">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:22.068" starttime="20140803 01:32:22.048"></status>
+</kw>
+<kw type="kw" name="teknosa_Keywords.ürünü sepete ekleme">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:22.079" starttime="20140803 01:32:22.069"></status>
+</kw>
+<kw type="kw" name="teknosa_Keywords.ürünü sepetden sil">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:22.120" starttime="20140803 01:32:22.080"></status>
+</kw>
+<kw type="teardown" name="general_keywords.close Application">
+<doc>_Keyword data removed using --RemoveKeywords option._</doc>
+<arguments>
+<arg>${APPLICATION_CLOSE}</arg>
+</arguments>
+<status status="PASS" endtime="20140803 01:32:22.166" starttime="20140803 01:32:22.120"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>adb:Nexus 5</tag>
+</tags>
+<status status="PASS" endtime="20140803 01:32:22.166" critical="yes" starttime="20140803 01:32:22.036"></status>
+</test>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="PASS" endtime="20140803 01:32:22.178" starttime="20140803 01:32:21.348"></status>
+</suite>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="PASS" elapsedtime="3258" endtime="N/A" starttime="N/A"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="12">Critical Tests</stat>
+<stat fail="0" pass="12">All Tests</stat>
+</total>
+<tag>
+<stat info="" links="" doc="" combined="" pass="3" fail="0">adb:GT-N7100</stat>
+<stat info="" links="" doc="" combined="" pass="3" fail="0">adb:HTC One</stat>
+<stat info="" links="" doc="" combined="" pass="3" fail="0">adb:Nexus 5</stat>
+<stat info="" links="" doc="" combined="" pass="3" fail="0">adb:T40</stat>
+</tag>
+<suite>
+<stat fail="0" pass="12" id="s1" name="Merged Teknosa">Merged Teknosa</stat>
+<stat fail="0" pass="3" id="s1-s1" name="Teknosa">Merged Teknosa.Teknosa</stat>
+<stat fail="0" pass="3" id="s1-s2" name="Teknosa">Merged Teknosa.Teknosa</stat>
+<stat fail="0" pass="3" id="s1-s3" name="Teknosa">Merged Teknosa.Teknosa</stat>
+<stat fail="0" pass="3" id="s1-s4" name="Teknosa">Merged Teknosa.Teknosa</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
