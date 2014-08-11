@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version last-->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Basic_sub" pageWidth="500" pageHeight="842" columnWidth="500" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="101c0b3e-e312-41c1-b2cc-72002c8de18b">
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Xml Merged"/>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Basic_sub" language="groovy" pageWidth="500" pageHeight="842" columnWidth="500" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="101c0b3e-e312-41c1-b2cc-72002c8de18b">
 	<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
 	<style name="Style1">
@@ -15,7 +14,7 @@
 		</conditionalStyle>
 	</style>
 	<style name="Style2" backcolor="#F74A78"/>
-	<queryString language="xPath">
+	<queryString language="xpath2">
 		<![CDATA[/robot/suite/suite]]>
 	</queryString>
 	<field name="Test Case" class="java.lang.String">

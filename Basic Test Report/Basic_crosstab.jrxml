@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version last-->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Basic" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b134d8e8-3708-43f6-a930-44cbe27b59e2">
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Xml Merged"/>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Basic" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b134d8e8-3708-43f6-a930-44cbe27b59e2">
+	<property name="ireport.jasperserver.url" value="http://localhost:8082/jasperserver-pro/"/>
+	<property name="ireport.jasperserver.report.resource" value="/public/crosstab6_files/main_jrxml"/>
+	<property name="ireport.jasperserver.reportUnit" value="/public/crosstab6"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Xml Remote Adapter"/>
 	<style name="Style1">
 		<conditionalStyle>
 			<conditionExpression><![CDATA[$V{StatusCross_MEASURE1}.equals("FAIL")]]></conditionExpression>
@@ -193,9 +196,9 @@
 		</box>
 	</style>
 	<subDataset name="Dataset1" uuid="dd4fdf9d-c5ea-4ddf-a619-a270dde0aacb">
-		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Xml Merged"/>
-		<queryString language="xPath">
-			<![CDATA[/robot/suite/suite/test]]>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Xml Remote Adapter"/>
+		<queryString language="xpath2">
+			<![CDATA[//suite/suite/test]]>
 		</queryString>
 		<field name="TestNameCross" class="java.lang.String">
 			<fieldDescription><![CDATA[@name]]></fieldDescription>
@@ -207,8 +210,12 @@
 			<fieldDescription><![CDATA[status/@status]]></fieldDescription>
 		</field>
 	</subDataset>
-	<queryString language="xPath">
-		<![CDATA[/robot/suite]]>
+	<parameter name="XML_URL" class="java.lang.String" isForPrompting="false">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA["http://localhost:8082/output4.xml"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="xpath2">
+		<![CDATA[//suite]]>
 	</queryString>
 	<field name="Suite Name" class="java.lang.String">
 		<fieldDescription><![CDATA[suite/@name]]></fieldDescription>
@@ -229,63 +236,36 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch">
+		<band height="35" splitType="Stretch">
 			<textField>
-				<reportElement x="-1" y="0" width="555" height="79" uuid="a6683776-7f8f-4488-aa36-07e902123b65"/>
+				<reportElement x="-1" y="0" width="555" height="35" uuid="a6683776-7f8f-4488-aa36-07e902123b65"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA["Hello World Example "]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="36" splitType="Stretch">
+		<band height="20" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
 			<textField>
-				<reportElement x="-1" y="0" width="181" height="20" uuid="53cbc1f0-7096-4d07-a041-028ee9188c19"/>
+				<reportElement x="0" y="0" width="181" height="20" uuid="53cbc1f0-7096-4d07-a041-028ee9188c19"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Suite Name}]]></textFieldExpression>
 			</textField>
-		</band>
-	</pageHeader>
-	<columnHeader>
-		<band height="20" splitType="Stretch">
-			<rectangle>
-				<reportElement x="-20" y="0" width="595" height="20" forecolor="#D1A138" backcolor="#E3C084" uuid="c17dde91-5d53-403f-9b89-7a2412dd75ec"/>
-			</rectangle>
-			<staticText>
-				<reportElement x="0" y="0" width="80" height="20" uuid="55e590f5-d403-4d2e-926d-5520d0e68eea"/>
-				<box>
-					<topPen lineWidth="0.4" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="0.4" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="0.4" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="0.4" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
-					<paragraph firstLineIndent="2"/>
-				</textElement>
-				<text><![CDATA[Test Case]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="80" y="0" width="474" height="20" uuid="e935c2fa-5fe3-44cf-82ad-71fd6f92f21f"/>
-				<box>
-					<topPen lineWidth="0.4" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="0.4" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="0.4" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="0.4" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Device]]></text>
-			</staticText>
+			<textField hyperlinkType="RemotePage">
+				<reportElement x="181" y="0" width="100" height="20" uuid="ac391968-0b3c-4e2d-adbc-60705a44fd85"/>
+				<textFieldExpression><![CDATA["Text Field"]]></textFieldExpression>
+			</textField>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="78" splitType="Stretch">
-			<crosstab>
-				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="554" height="40" uuid="86f94407-766d-402e-a115-9f1c4f050334"/>
+		<band height="40" splitType="Stretch">
+			<crosstab ignoreWidth="true">
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="140" height="20" backcolor="#FFB14A" uuid="86f94407-766d-402e-a115-9f1c4f050334"/>
 				<box>
 					<topPen lineWidth="0.2"/>
 					<leftPen lineWidth="0.2"/>
@@ -297,15 +277,6 @@
 						<datasetRun subDataset="Dataset1" uuid="b7606de1-0ea7-486c-88f2-bfb3bbd4aab0">
 							<datasetParameter name="XML_DATA_DOCUMENT">
 								<datasetParameterExpression><![CDATA[$P{XML_DATA_DOCUMENT}]]></datasetParameterExpression>
-							</datasetParameter>
-							<datasetParameter name="XML_INPUT_STREAM">
-								<datasetParameterExpression><![CDATA[$P{XML_INPUT_STREAM}]]></datasetParameterExpression>
-							</datasetParameter>
-							<datasetParameter name="XML_FILE">
-								<datasetParameterExpression><![CDATA[$P{XML_FILE}]]></datasetParameterExpression>
-							</datasetParameter>
-							<datasetParameter name="net.sf.jasperreports.xml.source">
-								<datasetParameterExpression><![CDATA[$P{net.sf.jasperreports.xml.source}]]></datasetParameterExpression>
 							</datasetParameter>
 							<datasetParameter name="XML_DATE_PATTERN">
 								<datasetParameterExpression><![CDATA[$P{XML_DATE_PATTERN}]]></datasetParameterExpression>
@@ -319,11 +290,44 @@
 							<datasetParameter name="XML_TIME_ZONE">
 								<datasetParameterExpression><![CDATA[$P{XML_TIME_ZONE}]]></datasetParameterExpression>
 							</datasetParameter>
+							<datasetParameter name="XML_URL">
+								<datasetParameterExpression><![CDATA[$P{XML_URL}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="XML_USERNAME">
+								<datasetParameterExpression><![CDATA[$P{XML_USERNAME}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="XML_PASSWORD">
+								<datasetParameterExpression><![CDATA[$P{XML_PASSWORD}]]></datasetParameterExpression>
+							</datasetParameter>
 							<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource) $P{REPORT_DATA_SOURCE}).subDataSource("/suite/suite/test")]]></dataSourceExpression>
 						</datasetRun>
 					</dataset>
 				</crosstabDataset>
-				<rowGroup name="TestNameCross1" width="80">
+				<titleCell height="20">
+					<cellContents style="Crosstab 1_CH">
+						<staticText>
+							<reportElement style="Crosstab 1_CH" x="0" y="0" width="80" height="20" uuid="301c13e4-dafc-4258-b684-2c284a792812"/>
+							<box>
+								<topPen lineWidth="0.3"/>
+								<leftPen lineWidth="0.3"/>
+								<bottomPen lineWidth="0.3"/>
+								<rightPen lineWidth="0.3"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font size="12" isBold="true"/>
+							</textElement>
+							<text><![CDATA[Test Case]]></text>
+						</staticText>
+						<staticText>
+							<reportElement style="Crosstab 1_CH" stretchType="RelativeToTallestObject" x="80" y="0" width="60" height="20" isRemoveLineWhenBlank="true" uuid="1db73c2d-0cb5-438a-ad65-9b02de94e0d2"/>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font size="12" isBold="true"/>
+							</textElement>
+							<text><![CDATA[Device]]></text>
+						</staticText>
+					</cellContents>
+				</titleCell>
+				<rowGroup name="TestNameCross1" width="80" headerPosition="Stretch">
 					<bucket order="Descending" class="java.lang.String">
 						<bucketExpression><![CDATA[$F{TestNameCross}]]></bucketExpression>
 					</bucket>
@@ -332,7 +336,7 @@
 							<property name="local_mesure_unitwidth" value="pixel"/>
 							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<textField>
-								<reportElement x="0" y="0" width="80" height="20" uuid="be91b0de-94db-48ca-964f-e138e9d8d567"/>
+								<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="80" height="20" uuid="be91b0de-94db-48ca-964f-e138e9d8d567"/>
 								<textElement verticalAlignment="Middle">
 									<paragraph firstLineIndent="2"/>
 								</textElement>
@@ -349,7 +353,7 @@
 						</cellContents>
 					</crosstabTotalRowHeader>
 				</rowGroup>
-				<columnGroup name="DeviceCross1" height="20">
+				<columnGroup name="DeviceCross1" height="20" headerPosition="Stretch">
 					<bucket class="java.lang.String">
 						<bucketExpression><![CDATA[$F{DeviceCross}.split( ":" )[1]]]></bucketExpression>
 					</bucket>
@@ -358,7 +362,7 @@
 							<property name="local_mesure_unitwidth" value="pixel"/>
 							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<textField>
-								<reportElement x="0" y="0" width="60" height="20" uuid="0f9c7537-7717-42a8-85fa-fd56d7671992">
+								<reportElement key="" isPrintRepeatedValues="false" x="0" y="0" width="60" height="20" uuid="0f9c7537-7717-42a8-85fa-fd56d7671992">
 									<property name="local_mesure_unitwidth" value="pixel"/>
 									<property name="com.jaspersoft.studio.unit.width" value="px"/>
 								</reportElement>
@@ -382,7 +386,7 @@
 					<measureExpression><![CDATA[$F{StatusCross}]]></measureExpression>
 				</measure>
 				<crosstabCell width="60" height="20">
-					<cellContents mode="Opaque" style="Crosstab 4_CD">
+					<cellContents mode="Opaque" style="Crosstab 1_CH">
 						<frame>
 							<reportElement style="Style1" x="0" y="0" width="60" height="20" uuid="bbff24cf-1cce-49d9-89a5-878d85a88b8d"/>
 						</frame>

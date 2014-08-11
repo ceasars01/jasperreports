@@ -1,0 +1,34 @@
+
+
+Teknosa - vm1_89
+
+Teknosa - vm2_90
+
+Teknosa - vm3_91
+
+--> Merged those reports 
+
+
+
+
+Data to Show Overall
+--------------
+- # test cases executed
+- # test pass
+- # test failed
+- # devices
+
+Data to List
+----------
+- List of Test Cases
+- List of Test Case Status
+
+
+test/@name
+
+(net.sf.jasperreports.engine.data.JRXmlDataSource) $P{REPORT_DATA_SOURCE}).subDataSource("test/@name"
+
+
+http://localhost:8082/jasperserver-pro/rest_v2/reports/public/xmlreport.pdf?XML_URL=http://localhost:8082/simple.xml
+
+http://localhost:8082/jasperserver-pro/rest_v2/reports/public/crosstab6.html?XML_URL=http://localhost:8082/output2.xml

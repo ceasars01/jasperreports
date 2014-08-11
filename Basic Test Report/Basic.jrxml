@@ -1,23 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version last-->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Basic" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b134d8e8-3708-43f6-a930-44cbe27b59e2">
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Xml Merged"/>
-	<subDataset name="Dataset1" uuid="dd4fdf9d-c5ea-4ddf-a619-a270dde0aacb">
-		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Xml Merged"/>
-		<queryString language="xPath">
-			<![CDATA[/robot/suite/suite/test]]>
-		</queryString>
-		<field name="Test Name" class="java.lang.String">
-			<fieldDescription><![CDATA[@name]]></fieldDescription>
-		</field>
-		<field name="tag" class="java.lang.String">
-			<fieldDescription><![CDATA[tags/tag]]></fieldDescription>
-		</field>
-		<field name="status" class="java.lang.String">
-			<fieldDescription><![CDATA[status/@status]]></fieldDescription>
-		</field>
-	</subDataset>
-	<queryString language="xPath">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Basic" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b134d8e8-3708-43f6-a930-44cbe27b59e2">
+	<property name="ireport.jasperserver.url" value="http://localhost:8082/jasperserver-pro/"/>
+	<property name="ireport.jasperserver.report.resource" value="/public/six_files/main_jrxml"/>
+	<property name="ireport.jasperserver.reportUnit" value="/public/six"/>
+	<parameter name="XML_URL" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{XML_URL} ? $P{XML_URL} : "http://localhost:8082/output2.xml"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="xpath2">
 		<![CDATA[/robot/suite/suite]]>
 	</queryString>
 	<field name="Suite Name" class="java.lang.String">
@@ -42,7 +32,7 @@
 		</band>
 	</title>
 	<pageHeader>
-		<band height="36" splitType="Stretch">
+		<band height="20" splitType="Stretch">
 			<textField>
 				<reportElement x="-1" y="0" width="181" height="20" uuid="53cbc1f0-7096-4d07-a041-028ee9188c19"/>
 				<textElement>
@@ -86,16 +76,18 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="45" splitType="Stretch">
+		<band height="40" splitType="Stretch">
 			<rectangle>
 				<reportElement x="-20" y="0" width="593" height="20" backcolor="#B0D7F5" uuid="2061b97d-3332-4136-a07f-7c4ea56a7990"/>
 			</rectangle>
 			<textField>
 				<reportElement x="-1" y="0" width="181" height="20" backcolor="#54C5E8" uuid="afabda55-dc18-45e1-bf75-a968e03dc9dc"/>
+				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{Device}.split( ":" )[1]]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="180" y="0" width="100" height="20" backcolor="#54C5E8" uuid="7f33b70f-046d-4687-aef1-9cad3bdd73ec"/>
+				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{Suite Status}]]></textFieldExpression>
 			</textField>
 			<subreport>
